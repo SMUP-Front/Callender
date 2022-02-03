@@ -5,5 +5,5 @@ yarn add sass
 yarn add @mui/material
 yarn add react-router-dom@6
 yarn add styled-components
-yarn add @xquare/xmoji# Callender
-# Callender
+yarn add @xquare/xmoji
+
