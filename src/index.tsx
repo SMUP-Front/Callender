@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import Error from "./Error/Error";
 import Callender from "./Components/Callender";
-import Timetable from "./Components/Timetable";
+import Timetable from "./Components/Scedule";
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
