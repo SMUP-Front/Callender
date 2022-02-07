@@ -4,6 +4,7 @@ import * as S from "./style";
 import { useState } from "react";
 import "../scss/Timetable.scss";
 import dayjs from "dayjs";
+import $ from "jquery";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 export default function TimeTable() {
@@ -56,13 +57,13 @@ export default function TimeTable() {
       "금요일",
       "토요일",
     ];
-
     var today = new Date().getDay();
     var todayLabel = week[today];
 
     return todayLabel;
   }
   var today_of_the_week = getTodayLabel();
+  let [dayof, setdayof] = useState(today_of_the_week);
 
   let [period, setPeriod] = useState<string[]>([]);
 
@@ -74,13 +75,8 @@ export default function TimeTable() {
     // console.log(copy1[0].title);
 
     setPeriod(copy1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  let [today, setToday] = useState(
-    dayjs().format("MM월 DD일 ") // hh시 mm분 ss초
-  );
-
-  let [dayof, setdayof] = useState(today_of_the_week);
 
   console.log(period);
 
@@ -89,19 +85,16 @@ export default function TimeTable() {
 
   console.log(now);
 
-  // const date1 = dayjs("2021-10-11 10:30:25.495", "YYYY-MM-DD HH:mm:ss.SSS"); // 날짜 대입
-
   let [showTime, setShowTime] = useState(now.format());
 
-  // // date.isBefore("2021-10-09"); // false
-  // if (
-  //   now.format().isSameOrBefore("2021-10-09") ||
-  //   now.format().isSameOrAfter("2021-10-09")
-  // ) {
-  //   console.log("smrn");
-  // } else if (nowTime.isSameOrAfter("2021-10-09")) {
-  //   console.log("smrn1");
-  // }
+  // date.isBefore("2021-10-09"); // false
+  if (now.isSameOrBefore("2022-10-09") || now.isSameOrAfter("2023-10-09")) {
+    $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+  } else if (now.isSameOrAfter("2021-10-09")) {
+    console.log("smrn1");
+  } else {
+    console.log("느그");
+  }
 
   return (
     <>
