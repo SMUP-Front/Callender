@@ -31,7 +31,10 @@ export const Today = styled.div`
   box-shadow: 3px 3px 3px 3px #e1e1e1;
 `;
 // background-color: rgb(197, 197, 197);
-// ----------------------- Timetable --------------------
+
+// ----------------------- Schedule --------------------
+// ----------------------- Schedule --------------------
+// ----------------------- Schedule --------------------
 
 export const Schedule = styled.div`
   height: 750px;
@@ -87,3 +90,58 @@ export const Line = styled.hr`
   width: 30%;
   border: solid 1px #c8c8c8;
 `;
+
+// ----------------------- Timetable --------------------
+// ----------------------- Timetable --------------------
+// ----------------------- Timetable --------------------
+
+export const Timetable = styled.div`
+  width: 100%;
+  height: 1080px;
+  background-color: #f0f0f0;
+`;
+
+export const TimetableTitle = styled.span`
+  display: block;
+  padding-top: 142px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #ae6fff;
+  text-align: center;
+`;
+
+export const period = styled.div`
+  width: 516px;
+  height: 66px;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 8px;
+  background-color: #ffffff;
+`;
+
+export const periodCount = styled.div`
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #ae6fff;
+  border: solid 1px #ae6fff;
+  background-color: #ffffff;
+  margin-left: 3px;
+  margin-top: 3px;
+  font-weight: bold;
+`;
+
+export const periodName = styled.span`
+  display: flex;
+  padding-left: 32px;
+  font-size: 16px;
+  align-items: center;
+  font-weight: bold;
+`;
+
+// export const  = styled.div`
+// `;

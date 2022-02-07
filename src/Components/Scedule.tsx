@@ -1,14 +1,15 @@
+/* eslint-disable */
 import React from "react";
-// import { useState } from "react";
-import "../scss/Timetable.scss";
+import { useState } from "react";
 import * as S from "./style";
-
+import dayjs from "dayjs";
 export default function Timetable() {
+  let [today, setToday] = useState(dayjs().format("MM월 DD일"));
   return (
     <S.Schedule>
       <S.ScheduleTitle>광소마 일정</S.ScheduleTitle>
       <S.ScheduleBoard>
-        <S.TodayTitle>0월 0일 할일</S.TodayTitle>
+        <S.TodayTitle>{today} 할일</S.TodayTitle>
         <ul>
           <S.ScheduleList>짧은 할일</S.ScheduleList>
           <S.ScheduleList>보통 길이의 할일</S.ScheduleList>
@@ -18,9 +19,10 @@ export default function Timetable() {
           </S.ScheduleList>
           <S.ScheduleList>너무 길면 ... 처리 </S.ScheduleList>
         </ul>
-
-        <S.LongButton style={{ margin: "430px auto 8px" }}>추가하기</S.LongButton>
-        <S.Line/>
+        <S.LongButton style={{ margin: "430px auto 8px" }}>
+          추가하기
+        </S.LongButton>
+        <S.Line />
         <S.LongButton style={{ margin: "8px auto 8px" }}>수정하기</S.LongButton>
       </S.ScheduleBoard>
       {/* <img
