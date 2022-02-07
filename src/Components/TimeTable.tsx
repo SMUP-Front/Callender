@@ -98,18 +98,18 @@ export default function TimeTable() {
   $(".6restTime").css("visibility", "hidden");
   $(".7restTime").css("visibility", "hidden"); // 쉬는시간 UI들 다 안보이게 처리
 
-  let testdate = dayjs(`${nowMonth} 14:13`, `MM-DD HH:mm`); // 여기서 테스트용 시계 시간 조작
+  // let testdate = dayjs(`${nowMonth} 14:13`, `MM-DD HH:mm`); // 여기서 테스트용 시계 시간 조작
 
   if (
     // 1교시
-    testdate.isSameOrAfter(`${nowMonth} 08:40`) &&
-    testdate.isSameOrBefore(`${nowMonth} 09:40`)
+    now.isSameOrAfter(`${nowMonth} 08:40`) &&
+    now.isSameOrBefore(`${nowMonth} 09:40`)
   ) {
     $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
     if (
       // 쉬는시간 UI
-      testdate.isSameOrAfter(`${nowMonth} 09:30`) &&
-      testdate.isSameOrBefore(`${nowMonth} 09:39`)
+      now.isSameOrAfter(`${nowMonth} 09:30`) &&
+      now.isSameOrBefore(`${nowMonth} 09:39`)
     ) {
       $(".1period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".1restTime").css("visibility", "visible");
@@ -117,15 +117,15 @@ export default function TimeTable() {
   } else if (
     // 2교시
 
-    testdate.isSameOrAfter(`${nowMonth} 09:40`) &&
-    testdate.isSameOrBefore(`${nowMonth} 10:40`)
+    now.isSameOrAfter(`${nowMonth} 09:40`) &&
+    now.isSameOrBefore(`${nowMonth} 10:40`)
   ) {
     $(".2period").css("color", "#ffffff").css("background-color", "#ae6fff");
     $(".1restTime").css("visibility", "hidden");
     if (
       // 쉬는시간 UI
-      testdate.isSameOrAfter(`${nowMonth} 10:30`) &&
-      testdate.isSameOrBefore(`${nowMonth} 10:39`)
+      now.isSameOrAfter(`${nowMonth} 10:30`) &&
+      now.isSameOrBefore(`${nowMonth} 10:39`)
     ) {
       $(".2period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".2restTime").css("visibility", "visible");
@@ -133,15 +133,15 @@ export default function TimeTable() {
   } else if (
     // 3교시
 
-    testdate.isSameOrAfter(`${nowMonth} 10:40`) &&
-    testdate.isSameOrBefore(`${nowMonth} 11:40`)
+    now.isSameOrAfter(`${nowMonth} 10:40`) &&
+    now.isSameOrBefore(`${nowMonth} 11:40`)
   ) {
     $(".3period").css("color", "#ffffff").css("background-color", "#ae6fff");
     $(".2restTime").css("visibility", "hidden");
     if (
       // 쉬는시간 UI
-      testdate.isSameOrAfter(`${nowMonth} 11:30`) &&
-      testdate.isSameOrBefore(`${nowMonth} 11:39`)
+      now.isSameOrAfter(`${nowMonth} 11:30`) &&
+      now.isSameOrBefore(`${nowMonth} 11:39`)
     ) {
       $(".3period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".3restTime").css("visibility", "visible");
@@ -149,15 +149,15 @@ export default function TimeTable() {
   } else if (
     //4 교시
 
-    testdate.isSameOrAfter(`${nowMonth} 11:40`) &&
-    testdate.isSameOrBefore(`${nowMonth} 13:20`)
+    now.isSameOrAfter(`${nowMonth} 11:40`) &&
+    now.isSameOrBefore(`${nowMonth} 13:20`)
   ) {
     $(".4period").css("color", "#ffffff").css("background-color", "#ae6fff");
     $(".3restTime").css("visibility", "hidden");
     if (
       // 점심시간 UI
-      testdate.isSameOrAfter(`${nowMonth} 12:30`) &&
-      testdate.isSameOrBefore(`${nowMonth} 13:20`)
+      now.isSameOrAfter(`${nowMonth} 12:30`) &&
+      now.isSameOrBefore(`${nowMonth} 13:20`)
     ) {
       $(".4period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".4restTime").css("visibility", "visible");
@@ -165,45 +165,45 @@ export default function TimeTable() {
   } else if (
     // 5교시
 
-    testdate.isSameOrAfter(`${nowMonth} 13:20`) &&
-    testdate.isSameOrBefore(`${nowMonth} 14:20`)
+    now.isSameOrAfter(`${nowMonth} 13:20`) &&
+    now.isSameOrBefore(`${nowMonth} 14:20`)
   ) {
     $(".5period").css("color", "#ffffff").css("background-color", "#ae6fff");
     $(".4restTime").css("visibility", "hidden");
     if (
       // 쉬는시간 UI
-      testdate.isSameOrAfter(`${nowMonth} 14:10`) &&
-      testdate.isSameOrBefore(`${nowMonth} 14:19`)
+      now.isSameOrAfter(`${nowMonth} 14:10`) &&
+      now.isSameOrBefore(`${nowMonth} 14:19`)
     ) {
       $(".5period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".5restTime").css("visibility", "visible");
     }
   } else if (
     // 6교시
-    testdate.isSameOrAfter(`${nowMonth} 14:20`) &&
-    testdate.isSameOrBefore(`${nowMonth} 15:20`)
+    now.isSameOrAfter(`${nowMonth} 14:20`) &&
+    now.isSameOrBefore(`${nowMonth} 15:20`)
   ) {
     $(".6period").css("color", "#ffffff").css("background-color", "#ae6fff");
     $(".5restTime").css("visibility", "hidden");
     if (
       // 쉬는시간 UI
-      testdate.isSameOrAfter(`${nowMonth} 15:10`) &&
-      testdate.isSameOrBefore(`${nowMonth} 15:19`)
+      now.isSameOrAfter(`${nowMonth} 15:10`) &&
+      now.isSameOrBefore(`${nowMonth} 15:19`)
     ) {
       $(".6period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".6restTime").css("visibility", "visible");
     }
   } else if (
     // 7교시
-    testdate.isSameOrAfter(`${nowMonth} 15:20`) &&
-    testdate.isSameOrBefore(`${nowMonth} 16:30`)
+    now.isSameOrAfter(`${nowMonth} 15:20`) &&
+    now.isSameOrBefore(`${nowMonth} 16:30`)
   ) {
     $(".7period").css("color", "#ffffff").css("background-color", "#ae6fff");
     $(".6restTime").css("visibility", "hidden");
     if (
       // 종례시간 UI
-      testdate.isSameOrAfter(`${nowMonth} 16:10`) &&
-      testdate.isSameOrBefore(`${nowMonth} 16:29`)
+      now.isSameOrAfter(`${nowMonth} 16:10`) &&
+      now.isSameOrBefore(`${nowMonth} 16:29`)
     ) {
       $(".7period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".7restTime").css("visibility", "visible");
@@ -244,7 +244,7 @@ export default function TimeTable() {
   else {
     console.log("버그입니당");
   }
-  console.log(testdate);
+  console.log(now);
 
   return (
     <>
