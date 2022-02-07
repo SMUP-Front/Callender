@@ -83,83 +83,219 @@ export default function TimeTable() {
   var now = dayjs();
   now.format();
 
-  console.log(now);
+  console.log(now.format());
 
   let [showTime, setShowTime] = useState(now.format());
   let today = now.format("MM-DD HH:mm");
-  // date.isBefore("2021-10-09"); // false
+  let nowMonth = now.format("MM-DD");
+  console.log(today);
+
+  let testdate = dayjs(`${nowMonth} 11:53`, `MM-DD HH:mm`); // 여기서 테스트용 시계 시간 조작
+
+
   if (
-    now.isSameOrAfter(`${today} 8:40`) ||
-    now.isSameOrBefore(`${today} 9:30`)
+    // 1교시
+    testdate.isSameOrAfter(`${nowMonth} 08:40`) &&
+    testdate.isSameOrBefore(`${nowMonth} 09:40`)
   ) {
     $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+    $(".1restTime").css("visibility", "hidden");
+    if (
+      // 쉬는시간 UI
+      testdate.isSameOrAfter(`${nowMonth} 09:30`) &&
+      testdate.isSameOrBefore(`${nowMonth} 09:39`)
+    ) {
+      $(".1period").css("color", "#ae6fff").css("background-color", "#ffffff");
+      $(".1restTime").css("visibility", "visible");
+    }
   } else if (
-    now.isSameOrAfter(`${today} 9:40`) ||
-    now.isSameOrBefore(`${today} 9:30`)
+    // 2교시
+
+    testdate.isSameOrAfter(`${nowMonth} 09:40`) &&
+    testdate.isSameOrBefore(`${nowMonth} 10:40`)
   ) {
-    $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+    $(".2period").css("color", "#ffffff").css("background-color", "#ae6fff");
+    $(".2restTime").css("visibility", "hidden");
+    if (
+      // 쉬는시간 UI
+      testdate.isSameOrAfter(`${nowMonth} 10:30`) &&
+      testdate.isSameOrBefore(`${nowMonth} 10:39`)
+    ) {
+      $(".2period").css("color", "#ae6fff").css("background-color", "#ffffff");
+      $(".2restTime").css("visibility", "visible");
+    }
   } else if (
-    now.isSameOrAfter(`${today} 8:40`) ||
-    now.isSameOrBefore(`${today} 9:30`)
+    // 3교시
+
+    testdate.isSameOrAfter(`${nowMonth} 10:40`) &&
+    testdate.isSameOrBefore(`${nowMonth} 11:40`)
   ) {
-    $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+    $(".2period").css("color", "#ffffff").css("background-color", "#ae6fff");
+    $(".2restTime").css("visibility", "hidden");
+    if (
+      // 쉬는시간 UI
+      testdate.isSameOrAfter(`${nowMonth} 11:30`) &&
+      testdate.isSameOrBefore(`${nowMonth} 11:39`)
+    ) {
+      $(".2period").css("color", "#ae6fff").css("background-color", "#ffffff");
+      $(".2restTime").css("visibility", "visible");
+    }
   } else if (
-    now.isSameOrAfter(`${today} 8:40`) ||
-    now.isSameOrBefore(`${today} 9:30`)
+    //4 교시
+
+    testdate.isSameOrAfter(`${nowMonth} 11:40`) &&
+    testdate.isSameOrBefore(`${nowMonth} 13:20`)
   ) {
-    $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+    $(".4period").css("color", "#ffffff").css("background-color", "#ae6fff");
+    $(".4restTime").css("visibility", "hidden");
+    if (
+      // 점심시간 UI
+      testdate.isSameOrAfter(`${nowMonth} 12:30`) &&
+      testdate.isSameOrBefore(`${nowMonth} 13:20`)
+    ) {
+      $(".3period").css("color", "#ae6fff").css("background-color", "#ffffff");
+      $(".3restTime").css("visibility", "visible");
+    }
   } else if (
-    now.isSameOrAfter(`${today} 8:40`) ||
-    now.isSameOrBefore(`${today} 9:30`)
+    // 5교시
+
+    testdate.isSameOrAfter(`${nowMonth} 13:20`) &&
+    testdate.isSameOrBefore(`${nowMonth} 14:20`)
   ) {
-    $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+    $(".5period").css("color", "#ffffff").css("background-color", "#ae6fff");
+    $(".5restTime").css("visibility", "hidden");
+    if (
+      // 쉬는시간 UI
+      testdate.isSameOrAfter(`${nowMonth} 14:10`) &&
+      testdate.isSameOrBefore(`${nowMonth} 14:19`)
+    ) {
+      $(".5period").css("color", "#ae6fff").css("background-color", "#ffffff");
+      $(".5restTime").css("visibility", "visible");
+    }
   } else if (
-    now.isSameOrAfter(`${today} 8:40`) ||
-    now.isSameOrBefore(`${today} 9:30`)
+    // 6교시
+    testdate.isSameOrAfter(`${nowMonth} 14:20`) &&
+    testdate.isSameOrBefore(`${nowMonth} 15:20`)
   ) {
-    $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+    $(".6period").css("color", "#ffffff").css("background-color", "#ae6fff");
+    $(".6restTime").css("visibility", "hidden");
+    if (
+      // 쉬는시간 UI
+      testdate.isSameOrAfter(`${nowMonth} 15:10`) &&
+      testdate.isSameOrBefore(`${nowMonth} 15:19`)
+    ) {
+      $(".6period").css("color", "#ae6fff").css("background-color", "#ffffff");
+      $(".6restTime").css("visibility", "visible");
+    }
   } else if (
-    now.isSameOrAfter(`${today} 8:40`) ||
-    now.isSameOrBefore(`${today} 9:30`)
+    // 7교시
+    testdate.isSameOrAfter(`${nowMonth} 15:20`) &&
+    testdate.isSameOrBefore(`${nowMonth} 16:30`)
   ) {
-    $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
-  } else {
-    console.log("느그");
+    $(".7period").css("color", "#ffffff").css("background-color", "#ae6fff");
+    $(".7restTime").css("visibility", "hidden");
+    if (
+      // 종례시간 UI
+      testdate.isSameOrAfter(`${nowMonth} 16:10`) &&
+      testdate.isSameOrBefore(`${nowMonth} 16:29`)
+    ) {
+      $(".7period").css("color", "#ae6fff").css("background-color", "#ffffff");
+      $(".7restTime").css("visibility", "visible");
+    }
   }
+
+  // else if (
+  //   now.isSameOrAfter(`9:40`) &&
+  //   now.isSameOrBefore(`9:30`)
+  // ) {
+  //   $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+  // } else if (
+  //   now.isSameOrAfter(`${today} 8:40`) &&
+  //   now.isSameOrBefore(`${today} 9:30`)
+  // ) {
+  //   $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+  // } else if (
+  //   now.isSameOrAfter(`${today} 8:40`) &&
+  //   now.isSameOrBefore(`${today} 9:30`)
+  // ) {
+  //   $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+  // } else if (
+  //   now.isSameOrAfter(`${today} 8:40`) &&
+  //   now.isSameOrBefore(`${today} 9:30`)
+  // ) {
+  //   $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+  // } else if (
+  //   now.isSameOrAfter(`${today} 8:40`) &&
+  //   now.isSameOrBefore(`${today} 9:30`)
+  // ) {
+  //   $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+  // } else if (
+  //   now.isSameOrAfter(`${today} 8:40`) &&
+  //   now.isSameOrBefore(`${today} 9:30`)
+  // ) {
+  //   $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+  // }
+  else {
+    console.log("버그입니당");
+  }
+  console.log(testdate);
 
   return (
     <>
       {showTime}
       <S.Timetable>
         <S.TimetableTitle>광소마 {dayof} 시간표</S.TimetableTitle>
-
-        <S.period>
-          <S.periodCount className="1period">1</S.periodCount>
-          <S.periodName>{period[0]}</S.periodName>
-        </S.period>
+        <div className="flex">
+          <S.period>
+            <S.periodCount className="1period">1</S.periodCount>
+            <S.periodName>{period[0]}</S.periodName>
+            <S.restTime className="1restTime">
+              <img src="img/알람시계.png" alt="알람" className="logo" />{" "}
+              쉬는시간
+            </S.restTime>
+          </S.period>
+        </div>
         <S.period>
           <S.periodCount className="2period">2</S.periodCount>
           <S.periodName>{period[1]}</S.periodName>
+          <S.restTime className="2restTime">
+            <img src="img/알람시계.png" alt="알람" className="logo" /> 쉬는시간
+          </S.restTime>
         </S.period>
         <S.period>
           <S.periodCount className="3period">3</S.periodCount>
           <S.periodName>{period[2]}</S.periodName>
+          <S.restTime className="3restTime">
+            <img src="img/알람시계.png" alt="알람" className="logo" /> 쉬는시간
+          </S.restTime>
         </S.period>
         <S.period>
           <S.periodCount className="4period">4</S.periodCount>
           <S.periodName>{period[3]}</S.periodName>
+          <S.restTime className="4restTime">
+            <img src="img/알람시계.png" alt="알람" className="logo" /> 점심시간
+          </S.restTime>
         </S.period>
         <S.period>
           <S.periodCount className="5period">5</S.periodCount>
           <S.periodName>{period[4]}</S.periodName>
+          <S.restTime className="5restTime">
+            <img src="img/알람시계.png" alt="알람" className="logo" /> 쉬는시간
+          </S.restTime>
         </S.period>
         <S.period>
           <S.periodCount className="6period">6</S.periodCount>
           <S.periodName>{period[5]}</S.periodName>
+          <S.restTime className="6restTime">
+            <img src="img/알람시계.png" alt="알람" className="logo" /> 쉬는시간
+          </S.restTime>
         </S.period>
         <S.period>
           <S.periodCount className="7period">7</S.periodCount>
           <S.periodName>{period[6]}</S.periodName>
+          <S.restTime className="7restTime">
+            <img src="img/알람시계.png" alt="알람" className="logo" /> 종례시간
+          </S.restTime>
         </S.period>
 
         {/* <img

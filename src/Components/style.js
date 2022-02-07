@@ -115,13 +115,19 @@ export const TimetableTitle = styled.span`
   margin-bottom: 46px;
 `;
 
+export const periodFrame = styled.div`
+  width: 800px;
+  height: 66px;
+`;
+
 export const period = styled.div`
-  width: 516px;
+  width: 510px;
   height: 66px;
   display: flex;
   margin: 10px auto;
   border-radius: 8px;
   background-color: #ffffff;
+  z-index: 1;
 `;
 
 export const periodCount = styled.div`
@@ -146,6 +152,22 @@ export const periodName = styled.span`
   font-size: 16px;
   align-items: center;
   font-weight: bold;
+`;
+
+export const restTime = styled.div`
+  display: inline;
+  width: 105px;
+  height: 60px;
+  background-color: #ae6fff;
+  color: #ffffff;
+  font-size: 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  vertical-align: middle;
+  text-align: center;
+  float: right;
+  z-index: 2;
+  margin-left:220px;
 `;
 
 // export const  = styled.div`
