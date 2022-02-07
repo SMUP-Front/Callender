@@ -35,7 +35,10 @@ export default function TimeTable() {
       title: "과학",
     },
   ];
+
   var date = dayjs("YYYY-MM-DD");
+
+  let [time, setTile] = useState(date);
 
   let [period, setPeriod] = useState<{ id: number; title: string }[]>([]);
 
@@ -55,6 +58,7 @@ export default function TimeTable() {
   return (
     <>
       <S.Timetable>
+        {time}
         <S.TimetableTitle>XX소마고 월요일 시간표</S.TimetableTitle>
 
         {period.map((data: any, index: number) => (
