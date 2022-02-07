@@ -86,12 +86,43 @@ export default function TimeTable() {
   console.log(now);
 
   let [showTime, setShowTime] = useState(now.format());
-
+  let today = now.format("MM-DD HH:mm");
   // date.isBefore("2021-10-09"); // false
-  if (now.isSameOrBefore("2022-10-09") || now.isSameOrAfter("2023-10-09")) {
+  if (
+    now.isSameOrAfter(`${today} 8:40`) ||
+    now.isSameOrBefore(`${today} 9:30`)
+  ) {
     $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
-  } else if (now.isSameOrAfter("2021-10-09")) {
-    console.log("smrn1");
+  } else if (
+    now.isSameOrAfter(`${today} 9:40`) ||
+    now.isSameOrBefore(`${today} 9:30`)
+  ) {
+    $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+  } else if (
+    now.isSameOrAfter(`${today} 8:40`) ||
+    now.isSameOrBefore(`${today} 9:30`)
+  ) {
+    $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+  } else if (
+    now.isSameOrAfter(`${today} 8:40`) ||
+    now.isSameOrBefore(`${today} 9:30`)
+  ) {
+    $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+  } else if (
+    now.isSameOrAfter(`${today} 8:40`) ||
+    now.isSameOrBefore(`${today} 9:30`)
+  ) {
+    $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+  } else if (
+    now.isSameOrAfter(`${today} 8:40`) ||
+    now.isSameOrBefore(`${today} 9:30`)
+  ) {
+    $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
+  } else if (
+    now.isSameOrAfter(`${today} 8:40`) ||
+    now.isSameOrBefore(`${today} 9:30`)
+  ) {
+    $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
   } else {
     console.log("느그");
   }
