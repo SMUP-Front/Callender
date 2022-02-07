@@ -1,9 +1,9 @@
 // eslint-disable
-
 import React, { useEffect } from "react";
 import * as S from "./style";
 import { useState } from "react";
 import "../scss/Timetable.scss";
+import dayjs from "dayjs";
 export default function TimeTable() {
   let exjson = [
     {
@@ -35,6 +35,7 @@ export default function TimeTable() {
       title: "과학",
     },
   ];
+  var date = dayjs("YYYY-MM-DD");
 
   let [period, setPeriod] = useState<{ id: number; title: string }[]>([]);
 
@@ -46,25 +47,31 @@ export default function TimeTable() {
     // console.log(copy1[0].title);
 
     setPeriod(copy1);
-    
   }, []);
   console.log(period);
+  // console.log
 
+  // console.log
   return (
-    <S.Timetable>
-      <S.TimetableTitle>XX소마고 월요일 시간표</S.TimetableTitle>
-      <img
-        src="https://i.ibb.co/DVVF6CD/Kakao-Talk-20220207-202737309-removebg-preview-1.png"
-        alt="여자와나무1"
-        style={{ width: "825px", height: "477px" }}
-      />
-      {period.map((data: any, index: number) => (
-        <p key={index}>{data}</p>
-      ))}
-      <S.period>
-        <S.periodCount>2</S.periodCount>
-        <S.periodName>수학</S.periodName>
-      </S.period>
-    </S.Timetable>
+    <>
+      <S.Timetable>
+        <S.TimetableTitle>XX소마고 월요일 시간표</S.TimetableTitle>
+
+        {period.map((data: any, index: number) => (
+          <S.period key={index}>
+            <S.periodCount>{index + 1}</S.periodCount>
+            <S.periodName>{period[index].title}</S.periodName>
+          </S.period>
+        ))}
+
+        <img
+          src="https://i.ibb.co/DVVF6CD/Kakao-Talk-20220207-202737309-removebg-preview-1.png"
+          alt="여자와나무1"
+          style={{ width: "825px", height: "477px" }}
+        />
+      </S.Timetable>
+      <img src="https://i.ibb.co/GVyqCw4/image.png" alt="타원" />
+    </>
   );
 }
+// </S.Flex>

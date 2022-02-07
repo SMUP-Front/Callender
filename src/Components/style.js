@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Flex = styled.div`
+  display: flex;
+`;
+
 export const Month = styled.span`
   font-size: 24px;
 `;
@@ -108,13 +112,14 @@ export const TimetableTitle = styled.span`
   font-weight: bold;
   color: #ae6fff;
   text-align: center;
+  margin-bottom: 46px;
 `;
 
 export const period = styled.div`
   width: 516px;
   height: 66px;
   display: flex;
-  margin: 0 auto;
+  margin: 10px auto;
   border-radius: 8px;
   background-color: #ffffff;
 `;

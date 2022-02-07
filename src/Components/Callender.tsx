@@ -27,7 +27,7 @@ const Callender = () => {
                 .startOf("year")
                 .week(week)
                 .startOf("week")
-                .add(index, "day"); //d로해도되지만 직관성
+                .add(index, "day"); 
 
               if (moment().format("YYYYMMDD") === days.format("YYYYMMDD")) {
                 return (
