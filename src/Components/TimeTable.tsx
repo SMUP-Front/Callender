@@ -63,7 +63,9 @@ export default function TimeTable() {
     return todayLabel;
   }
   var today_of_the_week = getTodayLabel();
-  let [dayof, setdayof] = useState(today_of_the_week);
+  
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  let [dayof, setdayof] = useState(today_of_the_week); 
 
   let [period, setPeriod] = useState<string[]>([]);
 
@@ -81,7 +83,7 @@ export default function TimeTable() {
   var now = dayjs();
   // now.format();
 
-  let [showTime, setShowTime] = useState(now.format());
+  // let [showTime, setShowTime] = useState(now.format()); // 실시간 시간 보여주는 state
   let nowMonth = now.format("MM-DD");
   // let nowtime = now.format("MM-DD HH:mm");
 
