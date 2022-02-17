@@ -102,49 +102,51 @@ export default function TimeTable() {
   console.log("testdate2 test : ", testdate2);
   console.log("type2 test : ", typeof testdate2);
   console.log("nowMonth test : ", nowMonth);
-
+  var nowjs = new Date(); // 현재 날짜 및 시간
+  var hours = nowjs.getHours();
+  var minutes = nowjs.getMinutes(); // 분
+  var nowtime = hours + ":" + minutes;
+  console.log("nowtime : ", nowtime);
   if (
     // 1교시
-    testdate2.isSameOrAfter(`08:40`) &&
-    testdate2.isSameOrBefore(`09:40`)
+    nowtime >= `08 40` &&
+    nowtime <= `09 40`
   ) {
     $(".1period").css("color", "#ffffff").css("background-color", "#ae6fff");
     if (
       // 쉬는시간 UI
-      testdate2.isSameOrAfter(`09:30`) &&
-      testdate2.isSameOrBefore(`09:39`)
+      nowtime >= `09:30` &&
+      nowtime <= `09 39`
     ) {
       $(".1period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".1restTime").css("visibility", "visible");
     }
   } else if (
     // 2교시
-
-    testdate2.isSameOrAfter(`09:40`) &&
-    testdate2.isSameOrBefore(`10:40`)
+    nowtime >= `09:40` &&
+    nowtime <= `10 40`
   ) {
     $(".2period").css("color", "#ffffff").css("background-color", "#ae6fff");
     $(".1restTime").css("visibility", "hidden");
     if (
       // 쉬는시간 UI
-      testdate2.isSameOrAfter(`10:30`) &&
-      testdate2.isSameOrBefore(`10:39`)
+      nowtime >= `10:30` &&
+      nowtime <= `10 39`
     ) {
       $(".2period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".2restTime").css("visibility", "visible");
     }
   } else if (
     // 3교시
-
-    testdate2.isSameOrAfter(`10:40`) &&
-    testdate2.isSameOrBefore(`11:40`)
+    nowtime >= `10:40` &&
+    nowtime <= `11:40`
   ) {
     $(".3period").css("color", "#ffffff").css("background-color", "#ae6fff");
     $(".2restTime").css("visibility", "hidden");
     if (
       // 쉬는시간 UI
-      testdate2.isSameOrAfter(`11:30`) &&
-      testdate2.isSameOrBefore(`11:39`)
+      nowtime >= `11:30` &&
+      nowtime <= `11:39`
     ) {
       $(".3period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".3restTime").css("visibility", "visible");
@@ -152,60 +154,61 @@ export default function TimeTable() {
   } else if (
     //4 교시
 
-    testdate2.isSameOrAfter(`11:40`) &&
-    testdate2.isSameOrBefore(`13:20`)
+    nowtime >= `11:40` &&
+    nowtime <= `13:20`
   ) {
     $(".4period").css("color", "#ffffff").css("background-color", "#ae6fff");
     $(".3restTime").css("visibility", "hidden");
     if (
       // 점심시간 UI
-      testdate2.isSameOrAfter(`12:30`) &&
-      testdate2.isSameOrBefore(`13:20`)
+      nowtime >= `12:30` &&
+      nowtime <= `13:20`
     ) {
       $(".4period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".4restTime").css("visibility", "visible");
     }
   } else if (
     // 5교시
-    testdate2.isSameOrAfter(`13:20`) &&
-    testdate2.isSameOrBefore(`14:20`)
+    nowtime >= `13:20` &&
+    nowtime <= `14:20`
   ) {
     $(".5period").css("color", "#ffffff").css("background-color", "#ae6fff");
     $(".4restTime").css("visibility", "hidden");
     if (
       // 쉬는시간 UI
-      testdate2.isSameOrAfter(`14:10`) &&
-      testdate2.isSameOrBefore(`14:19`)
+
+      nowtime >= `14:10` &&
+      nowtime <= `14:19`
     ) {
       $(".5period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".5restTime").css("visibility", "visible");
     }
   } else if (
     // 6교시
-    testdate2.isSameOrAfter(`14:20`) &&
-    testdate2.isSameOrBefore(`15:20`)
+    nowtime >= `14:20` &&
+    nowtime <= `15:20`
   ) {
     $(".6period").css("color", "#ffffff").css("background-color", "#ae6fff");
     $(".5restTime").css("visibility", "hidden");
     if (
       // 쉬는시간 UI
-      testdate2.isSameOrAfter(`15:10`) &&
-      testdate2.isSameOrBefore(`15:19`)
+      nowtime >= `15:10` &&
+      nowtime <= `15:19`
     ) {
       $(".6period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".6restTime").css("visibility", "visible");
     }
   } else if (
     // 7교시
-    testdate2.isSameOrAfter(`15:20`) &&
-    testdate2.isSameOrBefore(`16:30`)
+    nowtime >= `15:20` &&
+    nowtime <= `16:30`
   ) {
     $(".7period").css("color", "#ffffff").css("background-color", "#ae6fff");
     $(".6restTime").css("visibility", "hidden");
     if (
       // 종례시간 UI
-      testdate2.isSameOrAfter(`16:10`) &&
-      testdate2.isSameOrBefore(`16:29`)
+      nowtime >= `16:10` &&
+      nowtime <= `16:29`
     ) {
       $(".7period").css("color", "#ae6fff").css("background-color", "#ffffff");
       $(".7restTime").css("visibility", "visible");
@@ -249,7 +252,7 @@ export default function TimeTable() {
 
   return (
     <>
-      {showTime}
+      {/* {showTime} */}
       <S.Timetable>
         <S.TimetableTitle>광소마 {dayof} 시간표</S.TimetableTitle>
         <div className="flex">
