@@ -7,8 +7,8 @@ import TimeTable from "./Components/TimeTable";
 export default function App() {
   return (
     <div>
-      {/* <Callender />
-      <Scedule />*/}
+      <Callender />
+      <Scedule />*
       <TimeTable />
     </div>
   );
