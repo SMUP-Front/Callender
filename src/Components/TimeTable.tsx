@@ -5,6 +5,7 @@ import { useState } from "react";
 import "../scss/Timetable.scss";
 import dayjs from "dayjs";
 import $ from "jquery";
+import axios from "axios";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 export default function TimeTable() {
@@ -42,6 +43,24 @@ export default function TimeTable() {
     },
   ];
 
+  // axios
+  //   .get("http://3.36.108.34:8080/api/v1/schedule/timetable", {
+  //     headers: {
+  //       Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDg1Nzg2NjQsInVzZXJQayI6IjUxNDY2NDg4IiwiaWF0IjoxNjQ0OTc4NjY0fQ.QnZk8UhB6ygqJaoxEIQ-3PYAWuZB_vqta8aRXZK6g0E`,
+  //     },
+  //   })
+  //   .then((res) => {
+  //     console.log(res.data);
+  //   });
+  axios
+    .get("http://3.36.108.34:8080/api/v1/account/auth/signup", {
+      headers: {
+        email: `202110415@bssm.hs.kr`,
+      },
+    })
+    .then((res) => {
+      console.log(res.data);
+    });
   const refreshOne = () => {
     window.location.reload();
   };
@@ -59,14 +78,12 @@ export default function TimeTable() {
     ];
     var today = new Date().getDay();
     var todayLabel = week[today];
-
     return todayLabel;
   }
   var today_of_the_week = getTodayLabel();
-  
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  let [dayof, setdayof] = useState(today_of_the_week); 
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  let [dayof, setdayof] = useState(today_of_the_week);
   let [period, setPeriod] = useState<string[]>([]);
 
   useEffect(() => {
@@ -74,18 +91,13 @@ export default function TimeTable() {
     for (var i = 0; i < 7; i++) {
       copy1.push(exjson[i].title);
     }
-    // console.log(copy1[0].title);
 
     setPeriod(copy1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   var now = dayjs();
-  // now.format();
-
-  // let [showTime, setShowTime] = useState(now.format()); // 실시간 시간 보여주는 state
   let nowMonth = now.format("MM-DD");
-  // let nowtime = now.format("MM-DD HH:mm");
 
   $(".1restTime").css("visibility", "hidden");
   $(".2restTime").css("visibility", "hidden");
@@ -96,7 +108,6 @@ export default function TimeTable() {
   $(".7restTime").css("visibility", "hidden"); // 쉬는시간 UI들 다 안보이게 처리
 
   let testdate = dayjs(`${nowMonth} 14:13`, `MM-DD HH:mm`);
-  // let testdate2 = dayjs().format(`MM-DD HH:mm`);
   let testdate2 = now;
 
   console.log("testdate test : ", testdate);
